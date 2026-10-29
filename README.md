@@ -49,6 +49,7 @@ motortriage/
 ├── m_quote.pkl             # modèle : devis
 ├── m_days.pkl              # modèle : délai
 ├── requirements.txt
+├── colab_launch.sh         # lancement dans Google Colab
 ├── .streamlit/config.toml  # thème
 └── notebooks/              # génération des données et entraînement
 ```
@@ -56,11 +57,25 @@ motortriage/
 ## Lancer en local
 
 ```bash
-git clone https://github.com/alexsouye09-lds/motortriage.git
-cd motortriage
+git clone https://github.com/alexsouye09-lds/Motortriage.git
+cd Motortriage
 pip install -r requirements.txt
 streamlit run app.py
 ```
+
+Puis ouvrir http://localhost:8501 dans le navigateur.
+
+## Lancer dans Google Colab
+
+Dans une cellule Colab, sans rien installer à la main : le script affiche **un seul lien** (`trycloudflare.com`) à ouvrir.
+Les liens `Local`, `Network` et `External URL` de Streamlit ne fonctionnent pas depuis Colab.
+
+```bash
+!wget -q https://raw.githubusercontent.com/alexsouye09-lds/Motortriage/main/colab_launch.sh
+!bash colab_launch.sh
+```
+
+Le lien est temporaire : il disparaît à la fermeture de la session Colab.
 
 Les fichiers `.pkl` ont été créés avec la version de scikit-learn indiquée dans `requirements.txt`. Gardez la même version pour pouvoir les charger. N'ouvrez que des fichiers `.pkl` dont vous connaissez l'origine, car ce format peut exécuter du code.
 
